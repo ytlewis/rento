@@ -1,0 +1,26 @@
+═══════════════════════════════════════════════════════════
+     🧹 REMOVE ALL OLD PENDING BOOKINGS - RUN NOW
+═══════════════════════════════════════════════════════════
+
+STEP 1: Open Browser Console (Press F12)
+
+STEP 2: Copy and paste this ENTIRE script:
+
+(function removeOldPending(){console.log('🧹 Removing old pending bookings...');const b=JSON.parse(localStorage.getItem('rento_bookings')||'[]');const before=b.length;const pending=b.filter(x=>x.status==='pending'||x.status==='pending_approval');console.log('Found',pending.length,'old pending bookings');const cleaned=b.filter(x=>x.status!=='pending'&&x.status!=='pending_approval');localStorage.setItem('rento_bookings',JSON.stringify(cleaned));console.log('✅ Removed',before-cleaned.length,'pending bookings');console.log('✅ Remaining:',cleaned.length,'bookings');setTimeout(()=>{console.log('🔄 Reloading...');location.reload();},2000);})();
+
+STEP 3: Wait for page to reload
+
+═══════════════════════════════════════════════════════════
+
+WHAT THIS DOES:
+- Removes ALL bookings with status "pending"
+- Removes ALL bookings with status "pending_approval"
+- Keeps confirmed, rejected, and cancelled bookings
+- Reloads page automatically
+
+═══════════════════════════════════════════════════════════
+
+RESULT:
+All old pending bookings will be deleted from all tenants.
+
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,47 @@
+═══════════════════════════════════════════════════════════
+           🔥 SIMPLE FIX - COPY & PASTE THIS
+═══════════════════════════════════════════════════════════
+
+STEP 1: Open browser console (Press F12)
+
+STEP 2: Copy and paste this ENTIRE block:
+
+localStorage.clear();
+const admin={id:'admin-001',email:'lewismwangi210@gmail.com',full_name:'Lewis Mwangi',phone:'254712345678',role:'admin',created_at:new Date().toISOString(),password:btoa('Lewis001!')};
+localStorage.setItem('rento_users',JSON.stringify([admin]));
+localStorage.setItem('rento_apartments','[]');
+localStorage.setItem('rento_bookings','[]');
+localStorage.setItem('rento_payments','[]');
+console.log('✅ Fixed! Role:',admin.role);
+setTimeout(()=>window.location.href='http://localhost:8080/login?role=admin',2000);
+
+STEP 3: Wait 2 seconds for redirect
+
+STEP 4: On login page:
+  - Click "Log in" link at bottom (NOT "Sign up")
+  - Email: lewismwangi210@gmail.com
+  - Password: Lewis001!
+  - Click "Log In" button
+
+═══════════════════════════════════════════════════════════
+
+⚠️  CRITICAL:
+   - Use "Log in" NOT "Sign up"
+   - Account already exists
+   - Password has capital L and ! at end
+
+═══════════════════════════════════════════════════════════
+
+IF STILL DENIED:
+
+Run this in console AFTER login attempt:
+
+const cu=JSON.parse(localStorage.getItem('rento_current_user')||'{}');
+console.log('Current user role:',cu.role);
+if(cu.role!=='admin'){cu.role='admin';localStorage.setItem('rento_current_user',JSON.stringify(cu));console.log('✅ Fixed role');window.location.href='/admin';}
+
+═══════════════════════════════════════════════════════════
+
+For detailed debugging, see: DEBUG_LOGIN.md
+
+═══════════════════════════════════════════════════════════

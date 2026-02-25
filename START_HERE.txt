@@ -1,0 +1,31 @@
+═══════════════════════════════════════════════════════════
+                    ⚡ START HERE ⚡
+═══════════════════════════════════════════════════════════
+
+TO BECOME ADMIN:
+
+1. Go to: http://localhost:8080/login?role=admin
+
+2. Click "Sign up"
+
+3. Enter ANY email and password
+
+4. Click "Create Admin Account"
+
+5. You're now an admin! ✅
+
+═══════════════════════════════════════════════════════════
+
+THAT'S IT!
+
+No scripts to run.
+No console commands.
+No complicated setup.
+
+Just sign up through the admin portal URL and you're done!
+
+═══════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT: Must use ?role=admin in the URL!
+
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,44 @@
+═══════════════════════════════════════════════════════════
+        🔥 FIX ADMIN LOGIN - COPY & PASTE THIS
+═══════════════════════════════════════════════════════════
+
+STEP 1: Press F12 to open browser console
+
+STEP 2: Copy and paste this ENTIRE line:
+
+localStorage.clear();sessionStorage.clear();const a={id:'admin-001',email:'lewismwangi210@gmail.com',full_name:'Lewis Mwangi',phone:'254712345678',role:'admin',created_at:new Date().toISOString(),password:btoa('Lewis001!')};localStorage.setItem('rento_users',JSON.stringify([a]));localStorage.setItem('rento_apartments','[]');localStorage.setItem('rento_bookings','[]');localStorage.setItem('rento_payments','[]');console.log('✅ Fixed! Email:',a.email,'Role:',a.role);setTimeout(()=>window.location.href='http://localhost:8080/login?role=admin',2000);
+
+STEP 3: Wait 2 seconds for redirect
+
+STEP 4: On login page:
+  - Click "Log in" (NOT "Sign up")
+  - Email: lewismwangi210@gmail.com
+  - Password: Lewis001!
+  - Click "Log In"
+
+═══════════════════════════════════════════════════════════
+
+✅ This removes:
+   - Old admin (gathaiyalewis1122@gmail.com)
+   - Any tenant accounts with admin email
+   - All cached sessions
+
+✅ This creates:
+   - Fresh admin account
+   - Email: lewismwangi210@gmail.com
+   - Password: Lewis001!
+   - Role: admin (explicit)
+
+═══════════════════════════════════════════════════════════
+
+NEW FEATURES FOR TENANTS:
+
+Tenants can now:
+✅ Save M-Pesa numbers for quick payment
+✅ Save credit/debit cards
+✅ Set default payment method
+✅ Quick pay with saved methods
+
+See COMPLETE_SOLUTION.md for details
+
+═══════════════════════════════════════════════════════════

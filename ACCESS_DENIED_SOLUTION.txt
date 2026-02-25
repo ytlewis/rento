@@ -1,0 +1,54 @@
+═══════════════════════════════════════════════════════════
+              🔧 FIX "ACCESS DENIED" ERROR
+═══════════════════════════════════════════════════════════
+
+PROBLEM:
+You're getting "Access denied. This portal is for administrators 
+only." when trying to login.
+
+CAUSE:
+The user account exists but has role "tenant" instead of "admin"
+
+═══════════════════════════════════════════════════════════
+
+SOLUTION (Copy & Paste in Browser Console - Press F12):
+
+localStorage.clear();
+const admin = {
+  id: 'admin-001',
+  email: 'lewismwangi210@gmail.com',
+  full_name: 'Lewis Mwangi',
+  phone: '254712345678',
+  role: 'admin',
+  created_at: new Date().toISOString(),
+  password: btoa('Lewis001!')
+};
+localStorage.setItem('rento_users', JSON.stringify([admin]));
+localStorage.setItem('rento_apartments', '[]');
+localStorage.setItem('rento_bookings', '[]');
+localStorage.setItem('rento_payments', '[]');
+console.log('✅ Fixed! Reloading...');
+setTimeout(() => location.reload(), 2000);
+
+═══════════════════════════════════════════════════════════
+
+AFTER PAGE RELOADS:
+
+1. Go to: http://localhost:8080/login?role=admin
+2. Click "Log in" (NOT "Sign up")
+3. Email: lewismwangi210@gmail.com
+4. Password: Lewis001!
+5. Click "Log In"
+
+═══════════════════════════════════════════════════════════
+
+IMPORTANT:
+- Use "Log in" button (account already exists)
+- Password has capital L and exclamation mark: Lewis001!
+- Must include ?role=admin in URL
+
+═══════════════════════════════════════════════════════════
+
+For detailed diagnostics, see: DIAGNOSE_AND_FIX.md
+
+═══════════════════════════════════════════════════════════

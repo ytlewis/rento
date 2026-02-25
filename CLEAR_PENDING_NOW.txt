@@ -1,0 +1,42 @@
+CLEAR OLD PENDING BOOKINGS - QUICK SCRIPT
+==========================================
+
+Run this in your browser console while on the RENTO app:
+
+// Clear all pending approval bookings
+const clearPendingBookings = () => {
+  const bookings = JSON.parse(localStorage.getItem('rento_bookings') || '[]');
+  const filtered = bookings.filter(b => b.status !== 'pending_approval');
+  localStorage.setItem('rento_bookings', JSON.stringify(filtered));
+  const removedCount = bookings.length - filtered.length;
+  console.log(`✅ Cleared ${removedCount} pending approval bookings`);
+  alert(`Cleared ${removedCount} old pending bookings. Refresh the page.`);
+  window.location.reload();
+};
+
+clearPendingBookings();
+
+==========================================
+
+ALTERNATIVE: Clear ALL old bookings and start fresh:
+
+const clearAllBookings = () => {
+  localStorage.setItem('rento_bookings', JSON.stringify([]));
+  console.log('✅ Cleared all bookings');
+  alert('All bookings cleared. Refresh the page.');
+  window.location.reload();
+};
+
+clearAllBookings();
+
+==========================================
+
+HOW TO USE:
+1. Open RENTO app in browser
+2. Press F12 to open Developer Console
+3. Copy and paste the script above
+4. Press Enter
+5. Page will refresh automatically
+6. Old pending bookings will be gone
+
+==========================================

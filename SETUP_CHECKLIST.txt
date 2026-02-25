@@ -1,0 +1,162 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                  RENTO SETUP CHECKLIST                           ║
+║                  Complete in 5 Minutes                           ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 STEP 1: DATABASE SETUP (2 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Open Supabase SQL Editor
+  → https://supabase.com/dashboard/project/lvkweqqialyykgqxmxmo/sql/new
+
+□ Copy ALL content from: supabase/migrations/000_setup.sql
+
+□ Paste into SQL Editor and click RUN
+
+□ Verify success message appears
+
+□ Check Table Editor shows 6 tables:
+  □ profiles
+  □ apartments  
+  □ bookings
+  □ payments
+  □ admin_accounts
+  □ withdrawals
+
+□ Click "apartments" table - should show 6 properties
+
+
+📋 STEP 2: DISABLE EMAIL VERIFICATION (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Open Auth Settings
+  → https://supabase.com/dashboard/project/lvkweqqialyykgqxmxmo/auth/settings
+
+□ Find "Enable email confirmations" toggle
+
+□ TURN IT OFF (should be gray/disabled)
+
+□ Click SAVE button at bottom
+
+⚠️  CRITICAL: Without this, login will NOT work!
+
+
+📋 STEP 3: CREATE ADMIN ACCOUNT (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Choose ONE option:
+
+OPTION A - Through App (Recommended):
+□ Go to: http://localhost:8080/login?role=admin
+□ Click "Sign up"
+□ Enter:
+  • Full Name: Lewis Gathaiya
+  • Phone: 254712345678
+  • Email: gathaiyalewis1122@gmail.com  ⚠️ EXACT
+  • Password: Lewis001!  ⚠️ EXACT
+□ Click "Sign Up"
+□ Should auto-login to Admin Dashboard
+
+OR
+
+OPTION B - Through Supabase:
+□ Go to: https://supabase.com/dashboard/project/lvkweqqialyykgqxmxmo/auth/users
+□ Click "Add user" → "Create new user"
+□ Enter:
+  • Email: gathaiyalewis1122@gmail.com
+  • Password: Lewis001!
+  • Auto Confirm User: ✓ CHECK THIS
+□ Click "Create user"
+
+
+📋 STEP 4: TEST EVERYTHING (1 min)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ Test Admin Login:
+  □ Go to: http://localhost:8080/login?role=admin
+  □ Email: gathaiyalewis1122@gmail.com
+  □ Password: Lewis001!
+  □ Should see Admin Dashboard
+
+□ Test Add Property:
+  □ Click "Add Property" button
+  □ Fill in details
+  □ Click "Create"
+  □ Property appears in table
+
+□ Test Tenant Signup:
+  □ Sign out
+  □ Go to: http://localhost:8080/login
+  □ Click "Sign up"
+  □ Create test account
+  □ Should see Tenant Dashboard
+
+□ Test Booking:
+  □ Go to: http://localhost:8080
+  □ See apartments listed
+  □ Click "Book Now"
+  □ Select date
+  □ Confirm booking
+
+
+✅ FINAL VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+□ 6 tables exist in Supabase
+□ 6 sample apartments loaded
+□ Email confirmation disabled
+□ Admin user exists
+□ Admin login works
+□ Admin dashboard visible
+□ Can add properties
+□ Tenant signup works
+□ Can browse apartments
+□ Can book apartments
+
+
+🎉 SUCCESS!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Your RENTO app is fully functional!
+
+Next steps:
+• Add more properties via admin dashboard
+• Test booking flow with multiple tenants
+• Configure M-Pesa & Stripe for payments
+• Customize design and branding
+• Deploy to production
+
+
+🆘 HAVING ISSUES?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Check STEP_BY_STEP.md for detailed instructions
+2. Check TROUBLESHOOTING.md for solutions
+3. Run verify-setup.sql in Supabase to diagnose
+4. Check browser console for errors
+
+
+📞 QUICK FIXES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+"Could not find table":
+→ Run 000_setup.sql again in Supabase
+
+"Email not confirmed":
+→ Disable email confirmation in Auth settings
+
+"Invalid credentials":
+→ Use EXACT email: gathaiyalewis1122@gmail.com
+→ Use EXACT password: Lewis001!
+
+"No apartments":
+→ Run INSERT statements from 000_setup.sql
+
+
+═══════════════════════════════════════════════════════════════════
+
+Dev Server: http://localhost:8080
+Admin Login: http://localhost:8080/login?role=admin
+Supabase: https://supabase.com/dashboard/project/lvkweqqialyykgqxmxmo
+
+═══════════════════════════════════════════════════════════════════

@@ -1,0 +1,68 @@
+═══════════════════════════════════════════════════════════
+              🎉 BECOME ADMIN IN 30 SECONDS
+═══════════════════════════════════════════════════════════
+
+STEP 1: Go to this URL:
+
+http://localhost:8080/login?role=admin
+
+(The ?role=admin is what makes you an admin!)
+
+═══════════════════════════════════════════════════════════
+
+STEP 2: Click "Sign up" link at the bottom
+
+═══════════════════════════════════════════════════════════
+
+STEP 3: Fill in the form:
+
+Full Name:     [Your Name]
+Phone:         [Your Phone] (optional)
+Email:         [Any Email]
+Password:      [Any Password - min 6 chars]
+
+═══════════════════════════════════════════════════════════
+
+STEP 4: Click "Create Admin Account"
+
+═══════════════════════════════════════════════════════════
+
+✅ DONE! You're now an admin!
+
+You'll be automatically logged in and redirected to the
+admin dashboard with full admin permissions.
+
+═══════════════════════════════════════════════════════════
+
+💡 RECOMMENDED CREDENTIALS:
+
+Email:    lewismwangi210@gmail.com
+Password: Lewis001!
+Name:     Lewis Mwangi
+Phone:    254712345678
+
+But ANY email/password will work!
+
+═══════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT:
+
+- Must use: ?role=admin in URL
+- Without it, you'll be a tenant
+- With it, you'll be an admin
+
+═══════════════════════════════════════════════════════════
+
+🔄 ALREADY HAVE AN ACCOUNT?
+
+Option 1: Use different email to create new admin
+Option 2: Clear storage and start fresh:
+  - Press F12
+  - Paste: localStorage.clear(); location.reload();
+  - Then sign up as admin
+
+═══════════════════════════════════════════════════════════
+
+That's it! No more access denied errors! 🎉
+
+═══════════════════════════════════════════════════════════
