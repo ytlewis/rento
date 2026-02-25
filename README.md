@@ -69,9 +69,6 @@ bun run dev
 
 Visit `http://localhost:5173` to see the app.
 
-### Default Admin Credentials
-- **Email:** lewismwangi210@gmail.com
-- **Password:** Lewis001!
 
 ---
 
@@ -345,8 +342,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Lewis Mwangi**
-- Email: lewismwangi210@gmail.com
-- Phone: +254 712 345 678
+- Email: gathaiyalewis1122@gmail.com
+- Phone: +254 702320995
 - Location: Nairobi, Kenya
 
 ---
