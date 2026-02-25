@@ -17,6 +17,7 @@ import AdminPaymentAccounts from '@/components/AdminPaymentAccounts';
 import TenantManagement from '@/components/TenantManagement';
 import BookingMonitor from '@/components/BookingMonitor';
 import AdminManagement from '@/components/AdminManagement';
+import ContactSettings from '@/components/ContactSettings';
 import { toast } from 'sonner';
 import { getAuthUser, signOut, isAdmin } from '@/lib/localAuth';
 import { getApartments, saveApartments, getBookings, getPayments, generateId, type Apartment, type Booking, type Payment } from '@/lib/localStorage';
@@ -274,6 +275,11 @@ const AdminDashboard = () => {
         {/* Admin Payment Accounts */}
         <div className="mb-8">
           <AdminPaymentAccounts />
+        </div>
+
+        {/* Contact Settings */}
+        <div className="mb-8">
+          <ContactSettings />
         </div>
 
         {/* Tenant Management */}

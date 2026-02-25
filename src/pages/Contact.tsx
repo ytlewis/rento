@@ -8,7 +8,8 @@ import { Textarea } from '@/components/ui/textarea';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { toast } from 'sonner';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getContactInfo, type ContactInfo } from '@/components/ContactSettings';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,12 @@ const Contact = () => {
     subject: '',
     message: '',
   });
+  const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
+
+  useEffect(() => {
+    const info = getContactInfo();
+    setContactInfo(info);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,33 +31,45 @@ const Contact = () => {
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
+  if (!contactInfo) return null;
+
+  const getFacebookHandle = (url: string) => {
+    const match = url.match(/facebook\.com\/([^/?]+)/);
+    return match ? `@${match[1]}` : '@RentoHomes';
+  };
+
+  const getInstagramHandle = (url: string) => {
+    const match = url.match(/instagram\.com\/([^/?]+)/);
+    return match ? `@${match[1]}` : '@rento_homes';
+  };
+
   const contactMethods = [
     {
       icon: Phone,
       title: 'Phone',
-      value: '+254 712 345 678',
-      link: 'tel:+254712345678',
+      value: contactInfo.phone,
+      link: `tel:${contactInfo.phone.replace(/\s/g, '')}`,
       description: 'Mon-Fri 9am-6pm EAT',
     },
     {
       icon: Mail,
       title: 'Email',
-      value: 'support@rento.com',
-      link: 'mailto:support@rento.com',
+      value: contactInfo.email,
+      link: `mailto:${contactInfo.email}`,
       description: 'We reply within 24 hours',
     },
     {
       icon: Facebook,
       title: 'Facebook',
-      value: '@RentoHomes',
-      link: 'https://facebook.com/rentohomes',
+      value: getFacebookHandle(contactInfo.facebook),
+      link: contactInfo.facebook,
       description: 'Follow us for updates',
     },
     {
       icon: Instagram,
       title: 'Instagram',
-      value: '@rento_homes',
-      link: 'https://instagram.com/rento_homes',
+      value: getInstagramHandle(contactInfo.instagram),
+      link: contactInfo.instagram,
       description: 'See our properties',
     },
   ];
@@ -190,9 +209,9 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    123 Rental Street<br />
-                    Nairobi, Kenya<br />
-                    00100
+                    {contactInfo.address}<br />
+                    {contactInfo.city}<br />
+                    {contactInfo.postalCode}
                   </p>
                 </CardContent>
               </Card>
@@ -208,15 +227,15 @@ const Contact = () => {
                 <CardContent className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Monday - Friday</span>
-                    <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    <span className="font-medium">{contactInfo.mondayFriday}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Saturday</span>
-                    <span className="font-medium">10:00 AM - 4:00 PM</span>
+                    <span className="font-medium">{contactInfo.saturday}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Sunday</span>
-                    <span className="font-medium">Closed</span>
+                    <span className="font-medium">{contactInfo.sunday}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -230,7 +249,7 @@ const Contact = () => {
                 <CardContent>
                   <div className="flex gap-3">
                     <a
-                      href="https://facebook.com/rentohomes"
+                      href={contactInfo.facebook}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-[#1877F2] flex items-center justify-center hover:opacity-80 transition-opacity"
@@ -238,7 +257,7 @@ const Contact = () => {
                       <Facebook className="w-5 h-5 text-white" />
                     </a>
                     <a
-                      href="https://instagram.com/rento_homes"
+                      href={contactInfo.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] flex items-center justify-center hover:opacity-80 transition-opacity"
